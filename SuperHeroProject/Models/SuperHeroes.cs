@@ -10,10 +10,10 @@ namespace SuperHeroProject.Models
     {
         [Key]
         public int SuperHeroID { get; set; }
-        public int Name{ get; set; }
-        public int AlterEgo { get; set; }
-        public int PrimaryPower { get; set; }
-        public int SecondaryPower { get; set; }
-        public int Catchphrase { get; set; }
+        public string Name{ get; set; }
+        public string AlterEgo { get; set; }
+        public string PrimaryPower { get; set; }
+        public string SecondaryPower { get; set; }
+        public string Catchphrase { get; set; }
     }
 }

@@ -6,10 +6,13 @@ using System.Web.Mvc;
 
 namespace SuperHeroProject.Controllers
 {
+
     public class HomeController : Controller
     {
+       
         public ActionResult Index(SuperheroController superheroController)
         {
+           
 
             return View(superheroController);
         }

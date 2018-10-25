@@ -7,48 +7,57 @@ using System.Web.Mvc;
 
 namespace SuperHeroProject.Controllers
 {
+   
     public class SuperheroController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Person
 
+        // GET: SuperHeros
+        [HttpGet]
         public ActionResult Index()
         {
             var SuperHeros = db.SuperHeros.ToList();
             
             return View(SuperHeros);
         }
+        [HttpGet]
         public ActionResult Create()
         {
-            var SuperHeros = db.SuperHeros.ToList();
+            SuperHeros newSuperHero = new SuperHeros();
             return View();
         }
-        public ActionResult Create(SuperHeros superHeros)
+       
+        public ActionResult Create([Bind( Include= "SuperHeroId,Name,PrimaryPower,SecondaryPower,AlterEgo,Catchphras")]SuperHeros superHeros)
         {
-            var SuperHeros = db.SuperHeros.Add(superHeros);
+            db.SuperHeros.Add(superHeros);
             db.SaveChanges();
             
-            return View(SuperHeros);
+            return View("Index");
         }
+       
         public ActionResult Delete(SuperHeros superHeros)
         {
-            var SuperHeros = db.SuperHeros.Remove(superHeros);
+            db.SuperHeros.Remove(superHeros);
             db.SaveChanges();
             return View(SuperHeros);
         }
+      
         public ActionResult Edit(SuperHeros superHeros)
         {
-            var SuperHeros = db.SuperHeros.Add(superHeros);
+            db.SuperHeros.Add(superHeros);
              db.SuperHeros.Remove(superHeros);
             db.SaveChanges();
             return View(SuperHeros);
         }
+       
         public ActionResult Empty()
         {
             return View();
         }
+        [HttpPost]
         public ActionResult List()
         {
+            db.SuperHeros.ToList();
             return View();
         }
     }
