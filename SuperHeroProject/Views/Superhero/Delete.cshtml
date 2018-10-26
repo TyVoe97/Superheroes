@@ -7,58 +7,61 @@
 <h2>Delete</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>SuperHeros</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>SuperHeros</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AlterEgo)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.AlterEgo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AlterEgo)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.AlterEgo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrimaryPower)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PrimaryPower)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrimaryPower)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PrimaryPower)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SecondaryPower)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SecondaryPower)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SecondaryPower)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SecondaryPower)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Catchphrase)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Catchphrase)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Catchphrase)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Catchphrase)
+            </dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+    </div>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+    @Html.ActionLink("Back to List", "Index")
 </div>
+
+}
+
